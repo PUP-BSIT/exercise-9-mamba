@@ -1,57 +1,60 @@
-#TODO Spacings and Check indentations
-
 all_records = []
 
 def list_record():
+    print("\nList Student Records")
     for record in all_records:
         print(f"\nName: {record['name']}")
-        print(f"Year: {record['year']}")    
+        print(f"Age: {record['age']}")  
+        print(f"Year & Section: {record['year & section']}")    
         print(f"Course: {record['course']}")  
-        print(f"Status: {record['status']}")  
         print(f"Student ID: {record['student_id']}")
-    print("\nAll records listed successfully.")
+        print("\nAll records listed successfully.")
+    print("\nNo records found.")
 
 def add_student():
-    name = input("Name: ")
+    print("\nAdd Student Record")
+    name = input("\nName: ")
     age = int(input("Age: "))
-    year_section = input("Year and Section:")
-    course = input("Course:")
+    year_section = input("Year & Section: ")
+    course = input("Course: ")
     student_id = input("Enter Student ID: ")
     record = {
         "Name": name,
         "Age": age,
-        "Year and Section: ": year_section,
+        "Year & Section": year_section,
         "Course": course,
         "Student ID": student_id,
     }
     all_records.append(record)
-    print("Student Record added Successfully")
+    print("\nStudent record added successfully.")
 
     
-def update_record(): #TODO BUENACIFRA
+def update_record():
+    print("\nUpdate Student Record")
     student_id = input("\nEnter Student ID to update: ")
     for record in all_records:
         if record['student_id'] == student_id:
-            record['name'] = input("\nEnter new name: ")
-            record['year'] = input("Enter new year: ")
-            record['course'] = input("Enter new course: ")  
-            record['status'] = input("Enter new status: ")
-
+            record['name'] = input("\nName: ")
+            record['age'] = input("Age: ")
+            record['year & section'] = input("Year & Section: ")
+            record['course'] = input("Course: ")  
+            
             print(f"\nRecord for {student_id} updated successfully.")
+        print("\nRecord not found.")
     
 def delete_record(): #TODO TERO
         print("\nDelete Student Record")
-        target_id = int(input("Enter Student ID to delete: "))
+        target_id = int(input("\nEnter Student ID to delete: "))
         for i, record in enumerate(records):
             if record["id"] == target_id:
-                print(f"Deleting record: {record}")
+                print(f"\nDeleting record: {record}")
                 del records[i]
-                print("Record deleted.")
+                print("\nRecord deleted.")
                 return
-        print("Record not found.")
+        print("\nRecord not found.")
 
 def search_record(): #TODO ROLDAN
-    search_term = input("Enter a student name: ").lower()
+    search_term = input("\nEnter a student name: ").lower()
     found_records = False 
 
     for record in student_records:
@@ -60,18 +63,18 @@ def search_record(): #TODO ROLDAN
             found_records = True
 
     if not found_records:
-        print("No matching records found.")
+        print("\nNo matching records found.")
     
 def main_menu(): 
     while True:
-        print("\nStudent Record Management System")
+        print("\nStudent Record Management System\n")
         print("1. List All Student Records")
         print("2. Add Student Record")
         print("3. Update Student Record")
         print("4. Delete Student Record")
         print("5. Search Student Record")
         print("6. Exit")
-        choice = input("Enter your choice: ")
+        choice = input("\nEnter your choice: ")
         
         match choice:
             case "1":
