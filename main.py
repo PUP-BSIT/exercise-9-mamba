@@ -1,13 +1,22 @@
+all_records = []
+
 def list_record(): #TODO BUENACIFRA
 
-students = []    
 def add_student():
-    student = {}
-    student["name"] = input("\nName: ")
-    student["student_id"] = input("Student ID: ")
-    student["age"] = input("Course and Year: ")
-    students.append(student)
-    print(f"\nStudent record added successfully.")
+    name = input("Name: ")
+    age = int(input("Age: "))
+    year_section = input("Year and Section:")
+    course = input("Course:")
+    student_id = input("Enter Student ID: ")
+    record = {
+        "Name": name,
+        "Age": age,
+        "Year and Section: ": year_section,
+        "Course": course,
+        "Student ID": student_id,
+    }
+    all_records.append(record)
+    print("Student Record added Successfully")
 
     
 def update_record(): #TODO BUENACIFRA
