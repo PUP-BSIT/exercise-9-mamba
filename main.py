@@ -1,6 +1,17 @@
 def list_record(): #TODO BUENACIFRA
-def add_student(): #TODO BERNAS
+
+students = []    
+def add_student():
+    student = {}
+    student["name"] = input("\nName: ")
+    student["student_id"] = input("Student ID: ")
+    student["age"] = input("Course and Year: ")
+    students.append(student)
+    print(f"\nStudent record added successfully.")
+
+    
 def update_record(): #TODO BUENACIFRA
+    
 def delete_record(): #TODO TERO
         print("\nDelete Student Record")
         target_id = int(input("Enter Student ID to delete: "))
