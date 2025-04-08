@@ -1,6 +1,13 @@
 all_records = []
 
-def list_record(): #TODO BUENACIFRA
+def list_record():
+    for record in all_records:
+        print(f"\nName: {record['name']}")
+        print(f"Year: {record['year']}")    
+        print(f"Course: {record['course']}")  
+        print(f"Status: {record['status']}")  
+        print(f"Student ID: {record['student_id']}")
+    print("\nAll records listed successfully.")
 
 def add_student():
     name = input("Name: ")
@@ -20,6 +27,15 @@ def add_student():
 
     
 def update_record(): #TODO BUENACIFRA
+    student_id = input("\nEnter Student ID to update: ")
+    for record in all_records:
+        if record['student_id'] == student_id:
+            record['name'] = input("\nEnter new name: ")
+            record['year'] = input("Enter new year: ")
+            record['course'] = input("Enter new course: ")  
+            record['status'] = input("Enter new status: ")
+
+            print(f"\nRecord for {student_id} updated successfully.")
     
 def delete_record(): #TODO TERO
         print("\nDelete Student Record")
