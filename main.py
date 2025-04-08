@@ -11,7 +11,18 @@ def delete_record(): #TODO TERO
                 print("Record deleted.")
                 return
         print("Record not found.")
+
 def search_record(): #TODO ROLDAN
+    search_term = input("Enter a student name: ").lower()
+    found_records = False 
+
+    for record in student_records:
+        if search_term in str(record).lower():
+            print(record)
+            found_records = True
+
+    if not found_records:
+        print("No matching records found.")
     
 def main_menu(): 
     while True:
