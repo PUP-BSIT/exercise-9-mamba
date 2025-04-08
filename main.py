@@ -2,6 +2,15 @@ def list_record(): #TODO BUENACIFRA
 def add_student(): #TODO BERNAS
 def update_record(): #TODO BUENACIFRA
 def delete_record(): #TODO TERO
+        print("\nDelete Student Record")
+        target_id = int(input("Enter Student ID to delete: "))
+        for i, record in enumerate(records):
+            if record["id"] == target_id:
+                print(f"Deleting record: {record}")
+                del records[i]
+                print("Record deleted.")
+                return
+        print("Record not found.")
 def search_record(): #TODO ROLDAN
     
 def main_menu(): 
