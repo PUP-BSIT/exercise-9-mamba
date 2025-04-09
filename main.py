@@ -42,24 +42,25 @@ def update_record():
             print(f"\nRecord for {student_id} updated successfully.")
         print("\nRecord not found.")
     
-def delete_record(): #TODO TERO
-        print("\nDelete Student Record")
-        target_id = int(input("\nEnter Student ID to delete: "))
-        for i, record in enumerate(records):
-            if record["id"] == target_id:
-                print(f"\nDeleting record: {record}")
-                del records[i]
-                print("\nRecord deleted.")
-                return
+def delete_record():
+    print("\nDelete Student Record")
+    target_id = int(input("\nEnter Student ID to delete: "))
+    for record in all_records:
+        if record["Student ID"] == target_id:
+            print(f"\nDeleting record: {record}")
+            all_records.remove(record)
+            print("\nRecord deleted.")
+            return
+            
         print("\nRecord not found.")
 
 def search_record(): 
-    search_id = input("\nEnter a student ID: ")
+    search_id = input("\nEnter a Student ID: ")
     for record in all_records:
         if record["Student ID"] == search_id:
             print(f"\nName: {record['Name']}")
             print(f"Age: {record['Age']}")
-            print(f"Year and Section: {record['Year & Section']}")
+            print(f"Year & Section: {record['Year & Section']}")
             print(f"Course: {record['Course']}")
             print(f"Student ID: {record['Student ID']}")
             return
