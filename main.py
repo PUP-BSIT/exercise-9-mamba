@@ -9,7 +9,8 @@ def list_record():
         print(f"Course: {record['course']}")  
         print(f"Student ID: {record['student_id']}")
         print("\nAll records listed successfully.")
-    print("\nNo records found.")
+    if not all_records:
+        print("\nNo records found.")
 
 def add_student():
     print("\nAdd Student Record")
@@ -19,11 +20,11 @@ def add_student():
     course = input("Course: ")
     student_id = input("Enter Student ID: ")
     record = {
-        "Name": name,
-        "Age": age,
-        "Year & Section": year_section,
-        "Course": course,
-        "Student ID": student_id,
+        "name": name,
+        "age": age,
+        "year & section": year_section,
+        "course": course,
+        "student_id": student_id,
     }
     all_records.append(record)
     print("\nStudent record added successfully.")
@@ -46,7 +47,7 @@ def delete_record():
     print("\nDelete Student Record")
     target_id = int(input("\nEnter Student ID to delete: "))
     for record in all_records:
-        if record["Student ID"] == target_id:
+        if record["student_id"] == target_id:
             print(f"\nDeleting record: {record}")
             all_records.remove(record)
             print("\nRecord deleted.")
@@ -57,14 +58,14 @@ def delete_record():
 def search_record(): 
     search_id = input("\nEnter a Student ID: ")
     for record in all_records:
-        if record["Student ID"] == search_id:
-            print(f"\nName: {record['Name']}")
-            print(f"Age: {record['Age']}")
-            print(f"Year & Section: {record['Year & Section']}")
-            print(f"Course: {record['Course']}")
-            print(f"Student ID: {record['Student ID']}")
+        if record["student_id"] == search_id:
+            print(f"\nName: {record['name']}")
+            print(f"Age: {record['age']}")
+            print(f"Year & Section: {record['year & section']}")
+            print(f"Course: {record['course']}")
+            print(f"Student ID: {record['student_id']}")
             return
-    print("\nNo matching records found.")
+        print("\nNo matching records found.")
     
 def main_menu(): 
     while True:
