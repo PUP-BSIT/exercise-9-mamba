@@ -53,7 +53,6 @@ def delete_record():
 
     for record in all_records:
         if record["student_id"] == target_id:
-            print(f"\nDeleting record: {record}")
             all_records.remove(record)
             print("\nRecord deleted.")
         elif record["student_id"] != target_id:
