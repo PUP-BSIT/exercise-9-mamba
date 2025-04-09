@@ -1,6 +1,6 @@
 all_records = []
 
-def list_record():
+def list_records():
     print("\nList Student Records")
     for record in all_records:
         print(f"\nName: {record['name']}")
@@ -17,7 +17,7 @@ def list_record():
 def add_student():
     print("\nAdd Student Record")
     name = input("\nName: ")
-    age = int(input("Age: "))
+    age = input("Age: ")
     year_section = input("Year & Section: ")
     course = input("Course: ")
     student_id = input("Enter Student ID: ")
@@ -29,12 +29,13 @@ def add_student():
         "course": course,
         "student_id": student_id,
     }
+    
     all_records.append(record)
-
     print("\nStudent record added successfully.")
 
 def update_record():
     print("\nUpdate Student Record")
+    is_found = False
     student_id = input("\nEnter Student ID to update: ")
 
     for record in all_records:
@@ -44,21 +45,30 @@ def update_record():
             record['year & section'] = input("New Year & Section: ")
             record['course'] = input("New Course: ")  
             print(f"\nRecord for {student_id} updated successfully.")
-        elif record['student_id'] != student_id:
-            print("\nRecord not found.")
+            is_found = True
+            break
+
+    if not is_found:
+        print("\nRecord not found.")
     
 def delete_record():
     print("\nDelete Student Record")
+    is_found = False
     target_id = input("\nEnter Student ID to delete: ")
 
     for record in all_records:
         if record["student_id"] == target_id:
             all_records.remove(record)
             print("\nRecord deleted.")
-        elif record["student_id"] != target_id:
-            print("\nRecord not found.")
+            is_found = True
+            break
+
+    if not is_found:
+        print("\nRecord not found.")
 
 def search_record(): 
+    print("\nSearch Student Record")
+    is_found = False
     search_id = input("\nEnter a Student ID: ")
 
     for record in all_records:
@@ -68,8 +78,11 @@ def search_record():
             print(f"Year & Section: {record['year & section']}")
             print(f"Course: {record['course']}")
             print(f"Student ID: {record['student_id']}")
-        else:
-            print("\nNo matching records found.")
+            is_found = True
+            break
+
+    if not is_found:
+        print("\nRecord not found.")
     
 def main_menu(): 
     while True:
@@ -84,7 +97,7 @@ def main_menu():
         
         match choice:
             case "1":
-                list_record()
+                list_records()
             case "2":
                 add_student()
             case "3":
